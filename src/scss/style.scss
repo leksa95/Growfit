@@ -1,0 +1,114 @@
+@import "~bootstrap/scss/bootstrap";
+@import "vars";
+@import "fonts";
+@import "header";
+@import "footer";
+// import custom slider
+@import "customSlider";
+
+html, body{
+  overflow-x: hidden;
+  font-family: $regular;
+  font-size: 14px;
+}
+a:hover, a:focus, a:active{
+  text-decoration: none;
+}
+h2{
+  font-family: $bold;
+  font-size: 80px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #0d2032;
+}
+h3{
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgba(13, 32, 50, 0.8);
+}
+.simple_text{
+  opacity: 0.8;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: rgba(10, 10, 10, 0.8);
+  position: relative;
+  padding-left: 100px;
+  &:before{
+    content: '';
+    display: inline-block;
+    width: 50px;
+    border-bottom: solid 3px #f16522;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    transition: all .4s;
+  }
+}
+.top_block{
+  .brand_wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .phone_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    figure{
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+      height: 70%;
+      transform-origin: center center 0px;
+      transition: all 0.2s ease 0s;
+      transform: matrix3d(
+                      0.7546,-0.17,0.64,
+                      0.001,0.17,0.98,
+                      0,0,-0.64,
+                      0,0.77,0,
+                      10,0,30,1);
+      &:hover{
+        -webkit-transform: none;
+        transition: all 0.2s ease 0s;
+        -webkit-transform-origin: center center 0px;
+        -webkit-transition: all 0.2s ease 0s;
+      }
+      &:before{
+        position: absolute;
+        top: 0;
+        left: -75%;
+        z-index: 1;
+        display: inline-block;
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        -webkit-transform: skewX(-25deg);
+        transform: skewX(-25deg);
+        animation: shine 5s infinite;
+      }
+      img{
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+@import "media";
