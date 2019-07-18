@@ -109,6 +109,13 @@ h3{
     }
   }
 }
-
+.text_wrap{
+  width: 70%;
+}
+.default-container{
+  width: 1024px;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
 @import "media";
