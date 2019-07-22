@@ -105,5 +105,10 @@ module.exports = {
         to: './img'
       }
     ]),
+    new CopyWebpackPlugin([{
+        from: './src/fonts',
+        to: './fonts'
+    }
+    ]),
   ].concat(htmlPlugins)
 };
