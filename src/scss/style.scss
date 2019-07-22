@@ -16,31 +16,28 @@ a:hover, a:focus, a:active{
 }
 h2{
   font-family: $bold;
-  font-size: 80px;
+  font-size: 5.714em;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.25;
   letter-spacing: normal;
   color: #0d2032;
 }
 h3{
-  font-size: 24px;
+  font-size: 1.714em;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.5;
   letter-spacing: normal;
   text-align: center;
   color: rgba(13, 32, 50, 0.8);
 }
 .simple_text{
   opacity: 0.8;
-  font-size: 16px;
+  font-size: 1.143em;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.5;
   letter-spacing: normal;
   color: rgba(10, 10, 10, 0.8);
   position: relative;
@@ -63,19 +60,25 @@ h3{
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 50%;
+    img{
+      max-width: 100%;
+    }
   }
   .phone_wrap{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 80px);
+    //height: calc(100vh - 80px);
+    width: 50%;
     figure{
       position: relative;
       padding: 0;
       overflow: hidden;
-      height: 70%;
+      width: 80%;
       transform-origin: center center 0px;
       transition: all 0.2s ease 0s;
+      margin: 7.143rem;
       transform: matrix3d(
                       0.7546,-0.17,0.64,
                       0.001,0.17,0.98,
@@ -105,17 +108,52 @@ h3{
       }
       img{
         height: 100%;
+        width: 100%;
       }
     }
   }
 }
 .text_wrap{
   width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_inside{
+    width: 60%;
+  }
 }
 .default-container{
   width: 1024px;
   max-width: 100%;
   margin: 0 auto;
+}
+.circle{
+  width: 0;
+  transform: rotate(-180deg);
+}
+.text_parallax{
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.9);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.video_block{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+  overflow: hidden;
+}
+.video_block.fade-in{
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 @import "media";

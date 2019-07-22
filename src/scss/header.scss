@@ -3,9 +3,14 @@
   padding: 0 15px;
 }
 .extra-container{
-  padding: 20px 25px;
+  padding: 20px 1.786em;
   height: 80px;
   max-height: 80px;
+  .logo{
+    display: flex;
+    align-items: center;
+    height: 30px;
+  }
   .menu_wrap{
     display: flex;
     align-items: center;
@@ -20,7 +25,7 @@
       color: #0d2032;
       text-transform: uppercase;
       cursor: pointer;
-      margin: 0 15px;
+      margin: 0 1rem;
       position: relative;
       &:after{
         content: '';
@@ -58,7 +63,7 @@
       width: max-content;
       cursor: pointer;
       transition: background-color .3s ease,border-color .3s ease,border-width .3s ease;
-      margin-left: 15px;
+      margin-left: 1rem;
       &:hover{
         background: #f16522;
         border: solid 1px #f16522;
