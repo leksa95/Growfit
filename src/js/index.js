@@ -2,11 +2,6 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 
-// import 'animation.gsap';
-
-// import './animation.gsap';
-
-// init controller
 var controller = new ScrollMagic.Controller();
 
 var tween = TweenMax.to(".text_parallax, figure", 0.5, {opacity: "1"});
@@ -18,24 +13,20 @@ var scene = new ScrollMagic.Scene({
     .addTo(controller);
 
 
-$('.video_block .text_wrap').each(function(){
-    //build scenes
+$('.video_block .text_wrap, .section .text_wrap').each(function(){
     var ourScene = new ScrollMagic.Scene({
         triggerElement: this,
         duration: '100%',
         triggerHook: 0.5
     })
-        .setClassToggle(this,'fade-in') //add class to #scene2
+        .setClassToggle(this,'fade-in')
         .addTo(controller);
 });
 
-
-// define movement of panels
 var wipeAnimation = new TimelineMax()
     .to(".section-two", 1,   {
         x: "0%"
-    })
-// create scene to pin and link animation
+    });
 new ScrollMagic.Scene({
     triggerElement: ".section-two",
     triggerHook: "onLeave",
@@ -47,10 +38,51 @@ new ScrollMagic.Scene({
     // .addIndicators()
     .addTo(controller);
 
-// var scene3 = new ScrollMagic.Scene({
-//     // triggerElement: "#trigger"
+
+var moveImg = new TimelineMax();
+moveImg
+    // .to(".video_wrap", 0.3, {yPercent: -30, autoAlpha: 0, ease: Power4.easeInOut})
+    .fromTo(".video_wrap", 1, {xPercent: 0, autoAlpha: 0, width: 0}, {xPercent: 0, autoAlpha: 1, width: "29.6vw", ease: Power4.easeInOut})
+    // .from(".video_wrap", 1, {autoAlpha: 0}, '-=0.7');
+
+new ScrollMagic.Scene({
+    triggerElement: $('.video_wrap')[0],
+    duration: '70%'
+})
+    .setTween(moveImg)
+    .addTo(controller);
+
+
+// define movement of panels
+var wipeAnimation2 = new TimelineMax()
+    .fromTo(".section", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+    // .fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+    // .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+
+// create scene to pin and link animation
+new ScrollMagic.Scene({
+    triggerElement: this,
+    triggerHook: "onLeave",
+    duration: "200%"
+})
+    // .setPin(".section")
+    .setTween(wipeAnimation2)
+    .addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
+
+// var wipeAnimation3 = new TimelineMax()
+//     .fromTo(".video_wrap", 1, {x: "0%"}, {x: "100%", ease: Linear.easeNone})  // in from left
+// // .fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+// // .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+//
+// // create scene to pin and link animation
+// new ScrollMagic.Scene({
+//     triggerElement: this,
+//     triggerHook: "onLeave",
+//     duration: "200%"
 // })
-// // trigger a velocity opaticy animation
-//     .setVelocity(".video_wrap", {opacity: 0}, {duration: 400})
-//     // .addIndicators() // add indicators (requires plugin)
+// // .setPin(".section")
+//     .setTween(wipeAnimation3)
+//     .addIndicators() // add indicators (requires plugin)
 //     .addTo(controller);
+//
