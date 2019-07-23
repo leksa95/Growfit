@@ -160,20 +160,21 @@ h3{
   .section-two {
     //display: block;
     position: absolute;
-    right: 0;
+    right: 0!important;
+    left: auto!important;
     top: 0;
     margin: 0;
     padding: 0;
     width: 30vw;
     background-position: center;
     background-size: cover;
-    z-index: 5;
+    z-index: 1;
     transform: translateX(100vw);
     height: calc(100vh + 0px);
     background: #0d2032;
   }
   .custom_div{
-    width: 30%;
+    width: 30vw;
     display: block;
     img{
       width: 100%;
@@ -184,6 +185,9 @@ h3{
 
 .relative{
   position: relative;
+}
+.wrapper{
+  //position: relative;
 }
 .video_wrap{
   position: absolute;
@@ -202,7 +206,13 @@ h3{
 
 .section{
   height: 100vh;
+  //display: none;
   background: #0d2032;
+  position: absolute;
+  left: 0;
+  top: 100vh;
+  z-index: 1;
+  width:100%;
   //transform: translateX(100vw);
   .text_wrap{
     opacity: 0;
@@ -219,6 +229,7 @@ h3{
     }
     &_inside{
       width: 60%;
+      min-width: 450px;
     }
     h2, p{
       color: #fff;
