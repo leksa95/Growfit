@@ -16,7 +16,7 @@ var scene = new ScrollMagic.Scene({
     .addTo(controller);
 
 //TEXT
-$('.video_block .text_wrap, .section .text_wrap').each(function(){
+$('.text_wrap').each(function(){
     var ourScene = new ScrollMagic.Scene({
         triggerElement: this,
         duration: '100%',
@@ -37,7 +37,6 @@ new ScrollMagic.Scene({
 })
     .setTween(showLine)
     // .addIndicators()
-    // .setPin(".video_block")
     .addTo(controller);
 
 //HIDE LINE
@@ -50,8 +49,7 @@ new ScrollMagic.Scene({
 
 })
     .setTween(hideLine)
-    .addIndicators()
-    // .setPin(".video_block")
+    // .addIndicators()
     .addTo(controller);
 
 
@@ -59,7 +57,7 @@ new ScrollMagic.Scene({
 var moveVideo = new TimelineMax();
 moveVideo.to(".video_wrap", 1, { opacity: 1})
          .to(".video_wrap", 1, { width: 0}, "+=1")
-         .to(".section", 2, { width: "100%"}, "+=3")
+         .to(".section", 2, { width: "100%"}, "+=5")
 
 new ScrollMagic.Scene({
     triggerElement: ".video_block",
@@ -73,19 +71,47 @@ new ScrollMagic.Scene({
     .addTo(controller);
 
 
+var moveTarget = new TimelineMax();
+moveTarget.to("#target", 2, { right: "0"}, "+=10")
+    .to("#target", 2, { scale: 1 })
 
-// var showBlock = new TimelineMax();
-// showBlock.to(".section", 2, { opacity: 1, width: "100%"}, "+=20")
-// new ScrollMagic.Scene({
-//     triggerElement: ".video_block",
-//     duration: 1000,
-//     triggerHook: 1
-//
-// })
-//     .setTween(showBlock)
-//     // .addIndicators()
-//     // .setPin(".video_block")
-//     .addTo(controller);
-//
+new ScrollMagic.Scene({
+    triggerElement: ".video_block",
+    duration: 1000,
+    triggerHook: 0
+})
+    .setTween(moveTarget)
+    // .addIndicators()
+    // .setPin(".video_block")
+    .addTo(controller);
 
 
+
+const image = {
+    curviness: 1.25,
+    autoRotate: true,
+    values: [
+        { x: -150, y: 0 },
+        { x: 20, y: 10 },
+        // { x: 200, y: 30 },
+        // { x: 400, y: 50 }
+    ]
+};
+
+const tweens = new TimelineLite();
+
+tweens.add(
+    TweenLite.to('#target', 1,{
+        bezier: image,
+        ease: Power1.easeInOut
+    })
+);
+
+const imageScene =  new ScrollMagic.Scene({
+    // triggerElement: ".to",
+    duration: 5000,
+    triggerHook: 0
+})
+    .setTween(tweens)
+    .addIndicators()
+    .addTo(controller);

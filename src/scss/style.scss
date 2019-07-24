@@ -154,8 +154,12 @@ h3{
 }
 
 .video_block{
-  height: 100vh;
   position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  .default-container{
+    height:100vh;
+  }
   .text_wrap{
     opacity: 0;
     width: 70%;
@@ -203,14 +207,13 @@ h3{
 }
 
 .section{
-  //height: 100vh;
-  //display: none;
   background: #0d2032;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 1;
   width:0;
+  //height:100%;
   .default-container{
     height:100vh;
   }
@@ -240,6 +243,48 @@ h3{
   }
 }
 
-
+.next_section{
+  background: #0d2032;
+  //position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width:100%;
+  height:100%;
+  .default-container{
+    height:100vh;
+  }
+  .text_wrap{
+    opacity: 0;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: all 1s ease-out;
+    overflow: hidden;
+    &.fade-in{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    &_inside{
+      width: 60%;
+      min-width: 450px;
+    }
+    h2, p{
+      color: #fff;
+    }
+  }
+  .custom_div{
+    width: 30%;
+  }
+}
+#target{
+  position: absolute;
+  top: 200vh;
+  right: -100%;
+  z-index: 9999;
+  transform: scale(2.5);
+}
 
 @import "media";
