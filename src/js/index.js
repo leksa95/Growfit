@@ -72,12 +72,14 @@ new ScrollMagic.Scene({
 
 
 var moveTarget = new TimelineMax();
-moveTarget.to("#target", 2, { right: "0"}, "+=10")
-    .to("#target", 2, { scale: 1 })
+moveTarget.to("#target", 1, { right: "100"}, "+=4")
+    .to("#target", 1, { scale: 1, rotation: 0} )
+    // .to("#target", 0.5, { scale: 0.8, right: "30%", yPercent: +100, rotation: 90}, "+=2")
+    // .to("#target", 0.5, { scale: 1, right: "60%", yPercent: +200}, "+=1")
 
 new ScrollMagic.Scene({
     triggerElement: ".video_block",
-    duration: 1000,
+    duration: 1200,
     triggerHook: 0
 })
     .setTween(moveTarget)
@@ -88,30 +90,45 @@ new ScrollMagic.Scene({
 
 
 const image = {
-    curviness: 1.25,
-    autoRotate: true,
+    curviness: 1.1,
+    autoRotate: false,
     values: [
-        { x: -150, y: 0 },
-        { x: 20, y: 10 },
-        // { x: 200, y: 30 },
-        // { x: 400, y: 50 }
+        { x: 0, y: 0 },
+        { x: -300, y: 150 },
+        { x: -1024, y: 450 },
+        { x: 400, y: 1400 },
+        { x: 0, y: 1800 },
+        // { x: 350, y: -50 }
     ]
 };
 
 const tweens = new TimelineLite();
 
 tweens.add(
-    TweenLite.to('#target', 1,{
-        bezier: image,
-        ease: Power1.easeInOut
-    })
+    TweenLite.to('#target', 2,{bezier: image, scale: 0.8, right: "30%", yPercent: +100}, "+=15")
 );
 
 const imageScene =  new ScrollMagic.Scene({
-    // triggerElement: ".to",
-    duration: 5000,
-    triggerHook: 0
+    triggerElement: ".first",
+    duration: 4000,
+    triggerHook: 0.5,
 })
     .setTween(tweens)
+    .addIndicators()
+    .addTo(controller);
+
+
+const tweens2 = new TimelineLite();
+
+tweens.add(
+    TweenLite.to('#target', 2,{scale: 0.8, yPercent: +100}, "+=15")
+);
+
+const imageScene2 =  new ScrollMagic.Scene({
+    triggerElement: ".second",
+    duration: 4000,
+    triggerHook: 0.5,
+})
+    .setTween(tweens2)
     .addIndicators()
     .addTo(controller);

@@ -281,10 +281,11 @@ h3{
 }
 #target{
   position: absolute;
-  top: 200vh;
+  top: 240vh;
   right: -100%;
   z-index: 9999;
-  transform: scale(2.5);
+  //transform: scale(2.5);
+  transform: rotate(-45deg) scale(3);
 }
 
 @import "media";
