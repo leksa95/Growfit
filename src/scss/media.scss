@@ -14,8 +14,69 @@
     font-size: 12px;
   }
 }
-@media(max-width: 575px){
+@media(max-width: 480px){
   html, body{
-    font-size: 10px;
+    font-size: 8px;
+  }
+  .menu_wrap{
+    display: none!important;
+  }
+  .extra-container .logo{
+    margin: 0 auto;
+  }
+  .default-container{
+    width: 94%;
+    padding: 0 3%;
+  }
+  .video_block, .next_section, #target, .example{
+    display: none;
+  }
+  .top_block{
+    .default-container{
+      flex-direction: column-reverse;
+    }
+    .phone_wrap{
+      width: 100%;
+    }
+  }
+  .parallax{
+    flex-direction: column;
+  }
+  .mobile_content{
+    margin-top: 100px;
+  }
+  h2{
+    text-align: left;
+  }
+  .feed_parallax .simple_text{
+    text-align: left;
+  }
+  .feed_parallax .simple_text:before{
+    left: 0!important;
+    transform: unset;
+  }
+  .feedback{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    .simple_text{
+      text-align: center;
+    }
+  }
+  .feedback .simple_text:before{
+    left: 50%!important;
+    transform: translateX(-50%);
+  }
+  //.feed_parallax{
+  //  opacity: 0;
+  //  margin-top: 50px;
+  //}
+  .feed_parallax {
+    opacity: 0;
+    transition: all 1s ease-out;
+    overflow: hidden;
+    &.fade-in {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
 }
